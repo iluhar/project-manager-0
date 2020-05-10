@@ -57,11 +57,11 @@ init-mount:
 	sudo mkdir -p /sys/fs/cgroup/systemd;
 	sudo mount -a -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd;
 
-bash-command:
-	docker-compose run --rm manager-php-cli bash -c "cd /root.composer/cache;pwd;ls -alt"
-
 make-own-files:
 	sudo chown -R iriazanov /home/iriazanov/PhpstormProjects/symfony-one/project-manager/manager/
+
+bash-command:
+	docker-compose run --rm manager-php-cli bash -c "cd /root.composer/cache;pwd;ls -alt"
 
 git-create:
 
