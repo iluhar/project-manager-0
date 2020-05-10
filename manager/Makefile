@@ -50,12 +50,20 @@ composer-require-slim:
 
 composer-create-symfony:
 	make docker-up
-	docker-compose run --rm manager-php-cli composer create-project symfony/website-skeleton:4.2 skeleton42
-
+	docker-compose run --rm manager-php-cli composer create-project symfony/website-skeleton:4.2.99 .
+#	docker-compose run --rm manager-php-cli composer create-project symfony/website-skeleton:4.2.99 skeleton4299
 
 init-mount:
 	sudo mkdir -p /sys/fs/cgroup/systemd;
 	sudo mount -a -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd;
-# -a ??? delete
+
+bash-command:
+	docker-compose run --rm manager-php-cli bash -c "cd /root.composer/cache;pwd;ls -alt"
+
+make-own-files:
+	sudo chown -R iriazanov /home/iriazanov/PhpstormProjects/symfony-one/project-manager/manager/
+
+git-create:
+
 
 ########################################
